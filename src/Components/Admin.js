@@ -4,6 +4,8 @@ import { Spinner } from "./Spinner";
 import "./Admin.css"
 
 export const Admin = () => {
+  const urlocal="http://localhost:4000";
+  const globalurl="https://deepak-backend.vercel.app"
   //image fetching
   const [images, setImages] = useState([]);
   useEffect(() => {
@@ -14,7 +16,7 @@ export const Admin = () => {
   const fetchImages = async () => {
     try {
       const response = await axios.get(
-        "https://deepak-backend.vercel.app/api/v1/upload/allimages"
+        `${urlocal}/api/v1/upload/allimages`
       );
       setImages(response.data);
     } catch (error) {
@@ -51,7 +53,7 @@ export const Admin = () => {
 
     try {
       await axios.post(
-        "https://deepak-backend.vercel.app/api/v1/upload/cloudfileupload",
+        `${urlocal}/api/v1/upload/cloudfileupload`,
         formData,
         {
           headers: {
@@ -84,7 +86,7 @@ export const Admin = () => {
         const data = {
           _id: id,
         };
-        await axios.post("https://deepak-backend.vercel.app/api/v1/upload/deleteFile", data);
+        await axios.post(`${urlocal}/api/v1/upload/deleteFile`, data);
         // Handle success, such as showing a success message or updating the UI
         console.log("File deleted successfully");
         setUploadStatus("Image Deleted successfully");

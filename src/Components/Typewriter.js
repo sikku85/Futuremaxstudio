@@ -7,7 +7,7 @@ export const Typewriter = () => {
 
     useEffect(() => {
       const strings = [
-        "Flimmaker",
+        "Film Maker",
         "Photographer",
         "Wedding Planner",
         "Video Editor",
