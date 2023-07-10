@@ -4,8 +4,8 @@ import { Spinner } from "./Spinner";
 import "./Admin.css"
 
 export const Admin = () => {
-  const localurl="http://localhost:4000";
-  const globalurl="https://deepak-backend.vercel.app"
+  const localurl="https://deepak-backend.vercel.app";
+  const globalurl="https://deepak-backend.vercel.app";
   //image fetching
   const [images, setImages] = useState([]);
   useEffect(() => {

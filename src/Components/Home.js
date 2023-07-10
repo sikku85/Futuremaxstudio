@@ -1,12 +1,55 @@
 import React from "react";
+import { useState } from "react";
+import axios from "axios";
 import "../Css/Home.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { NavLink } from "react-router-dom";
 import { Typewriter } from "./Typewriter";
 import { Navbar } from "./Navbar";
 import "./Writter";
+import { Spinner } from "./Spinner";
 
 export const Home = () => {
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [uploadStatus, setUploadStatus] = useState("");
+
+  const handleSubmit = async (e) => {
+    setIsLoading(true);
+    e.preventDefault();
+
+    try {
+      const response = await axios.post("https://deepak-backend.vercel.app/api/v1/upload/submitform", {
+        name,
+        email,
+      });
+
+      // Handle the response as needed
+      console.log(response.data);
+
+      // Reset the form
+      setName('');
+      setEmail('');
+      setUploadStatus("Sucessfully send");
+      setTimeout(() => {
+        setUploadStatus("");
+        
+      }, 3000);
+    } catch (error) {
+      // Handle error
+      console.error(error);
+      setUploadStatus("error while sending");
+      setTimeout(() => {
+        setUploadStatus("");
+        
+      }, 3000);
+    }
+    setIsLoading(false);
+  };
+
+
   return (
     <div>
       <Navbar></Navbar>
@@ -213,23 +256,33 @@ export const Home = () => {
                 <p className="lead">
                   <i className="fas fa-envelope"></i> thecafeboy@gmail.com
                 </p>
-                <form action="">
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Your name here ..."
-                  />
-                  <input
-                    type="email"
-                    className="form-control"
-                    placeholder="Your email here"
-                  />
-                  <input
-                    type="submit"
-                    className="btn-submit btn"
-                    value="Submit"
-                  />
-                </form>
+                {
+                  isLoading?(<Spinner></Spinner>):(
+                    <form onSubmit={handleSubmit}>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Your name here ..."
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                    />
+                    <input
+                      type="email"
+                      className="form-control"
+                      placeholder="Your email here"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <input type="submit" className="btn-submit btn" value="Submit" />
+                    
+                  </form>
+                  )
+                }
+
+    {isLoading && <Spinner />}
+    {uploadStatus && <p>{uploadStatus}</p>}
+      
+    
               </div>
 
               <div className="contact-right">

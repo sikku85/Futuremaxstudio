@@ -5,6 +5,7 @@ import { Home } from './Components/Home';
 import { Navbar } from './Components/Navbar';
 import { Portfolio } from './Components/Portfolio';
 import { Admin } from './Components/Admin';
+import { Allcontacts } from './Components/Allcontacts';
 function App() {
   const {centralizedData,updateCentralizedData}=useContext(AppContext);
   return (
@@ -16,6 +17,10 @@ function App() {
       <Route path='/' element={<Home></Home>}></Route>
       <Route path='/Portfolio' element={<Portfolio></Portfolio>}></Route>
       <Route path='/adminsection' element={<Admin></Admin>}></Route>
+      <Route path='/allcontacts' element={<Allcontacts></Allcontacts>}></Route>
+
+
+
 
 
 
