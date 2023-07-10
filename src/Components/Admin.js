@@ -77,25 +77,30 @@ export const Admin = () => {
   };
 
   const handleDelete = async (id) => {
-    setIsLoading(true);
-    try {
-      const data = {
-        _id: id,
-      };
-      await axios.post("https://deepak-backend.vercel.app/api/v1/upload/deleteFile", data);
-      // Handle success, such as showing a success message or updating the UI
-      console.log("File deleted successfully");
-      setUploadStatus("Image Deleted successfully");
-    } catch (error) {
-      // Handle error, such as displaying an error message or logging the error
-      console.error("Error deleting file:", error);
-      setUploadStatus("Error While Deleting Image");
+    const confirmed = window.confirm('Are you sure you want to delete?');
+    if(confirmed){
+      setIsLoading(true);
+      try {
+        const data = {
+          _id: id,
+        };
+        await axios.post("https://deepak-backend.vercel.app/api/v1/upload/deleteFile", data);
+        // Handle success, such as showing a success message or updating the UI
+        console.log("File deleted successfully");
+        setUploadStatus("Image Deleted successfully");
+      } catch (error) {
+        // Handle error, such as displaying an error message or logging the error
+        console.error("Error deleting file:", error);
+        setUploadStatus("Error While Deleting Image");
+      }
+      setIsLoading(false);
+      setTimeout(() => {
+          window.location.reload();
+          
+      }, 1000);
+
     }
-    setIsLoading(false);
-    setTimeout(() => {
-        window.location.reload();
-        
-    }, 2000);
+   
 
   };
 

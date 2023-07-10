@@ -158,11 +158,26 @@ export const Home = () => {
                 <div>
                   <img src={require("../images/1.5.1 (1).jpg")} alt="" />
                 </div>
+                <div>
+                  <img src={require("../images/1.7.jpg")} alt="" />
+                </div>
+                <div>
+                  <img src={require("../images/1.4.jpg")} alt="" />
+                </div>
+                <div>
+                  <img src={require("../images/1.8.JPG")} alt="" />
+                </div>
+                <div>
+                  <img src={require("../images/1.5.1 (1).jpg")} alt="" />
+                </div>
+                <div>
+                  <img src={require("../images/1.2.jpg")} alt="" />
+                </div>
 
                 {/* <div>
                   <img src={require("../images/1.2.jpg")} alt="" />
                 </div> */}
-                <div>
+                {/* <div>
                   <img src={require("../images/1.3.jpg")} alt="" />
                 </div>
                 <div>
@@ -173,7 +188,7 @@ export const Home = () => {
                 </div>
                 <div>
                   <img src={require("../images/1.6.jpg")} alt="" />
-                </div>
+                </div> */}
                 {/* <div>
                   <img src={require("../images/1.7.jpg")} alt="" />
                 </div>
