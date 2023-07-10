@@ -168,10 +168,10 @@ export const Home = () => {
                   <img src={require("../images/1.8.JPG")} alt="" />
                 </div>
                 <div>
-                  <img src={require("../images/1.5.1 (1).jpg")} alt="" />
+                  <img src={require("../images/i-7.JPG")} alt="" />
                 </div>
                 <div>
-                  <img src={require("../images/1.2.jpg")} alt="" />
+                  <img src={require("../images/IMG_8294.JPG")} alt="" />
                 </div>
 
                 {/* <div>
