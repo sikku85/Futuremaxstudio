@@ -170,6 +170,7 @@ export const Admin = () => {
                     alt="Imageing"
                   />
                 </div>
+                <div>{imag.name}</div>
                 <button className="btn" onClick={() => handleDelete(imag._id)}>Delete</button>
                 <p></p>
               </div>
